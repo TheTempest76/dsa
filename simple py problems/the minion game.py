@@ -1,20 +1,46 @@
+'''
+Kevin and Stuart want to play the 'The Minion Game'.
+
+Game Rules
+
+Both players are given the same string,
+.
+Both players have to make substrings using the letters of the string
+
+.
+Stuart has to make words starting with consonants.
+Kevin has to make words starting with vowels.
+The game ends when both players have made all possible substrings.
+
+Scoring
+A player gets +1 point for each occurrence of the substring in the string
+
+.
+
+For Example:
+String
+= BANANA
+Kevin's vowel beginning word = ANA
+Here, ANA occurs twice in BANANA. Hence, Kevin will get 2 Points. 
+'''
+
+
 def minion_game(s):
     # your code goes here
-    vowels = ['A', 'E', 'I', 'O', 'U']
-
-    a = 0
-    b = 0
-    for i, c in enumerate(s):
+    vowels = ['A', 'E' , 'I','O' , 'U']
+    kevin = stuart =  0
+    s = s.upper()
+    for i , c in enumerate(s):
         if c in vowels:
-            b += len(s) - i
-        else:
-            a += len(s) - i
+            kevin += len(s) - i  
+        else :
+            stuart += len(s)-i
+            print(s[i:])
 
-    if a == b:
-        print ("Draw")
-    elif a > b:
-        print(f"Stuart {b}")
-    else:
-        print(f"Stuart {a}")
-    
-print(minion_game("banana"))
+    if kevin > stuart :
+        print(f'kevin {kevin}')
+    elif stuart > kevin:
+        print(f'stuart {stuart}')
+    else :
+        print('Draw')
+minion_game("banana")
